@@ -1,0 +1,97 @@
+/* Teemad: .dark ja .light seatakse peaakna juurele (MainApp.applyTheme) */
+.dark {
+    -tm-bg: #15171c;
+    -tm-panel: #1f222a;
+    -tm-text: #e8eaf0;
+    -tm-muted: #8b90a0;
+    -tm-accent: #4cc2ff;
+    -tm-border: #2c303b;
+}
+
+.light {
+    -tm-bg: #f2f4f8;
+    -tm-panel: #ffffff;
+    -tm-text: #1b1e26;
+    -tm-muted: #6a7080;
+    -tm-accent: #0078d4;
+    -tm-border: #dde1e8;
+}
+
+.root-pane { -fx-background-color: -tm-bg; }
+.label { -fx-text-fill: -tm-text; }
+.muted { -fx-text-fill: -tm-muted; }
+
+/* Külgmenüü */
+.sidebar {
+    -fx-background-color: -tm-panel;
+    -fx-padding: 16 10 16 10;
+    -fx-border-color: -tm-border;
+    -fx-border-width: 0 1 0 0;
+}
+.brand { -fx-font-size: 15px; -fx-font-weight: bold; -fx-padding: 0 0 16 8; }
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -tm-muted;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 14 10 14;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+}
+.nav-button:hover { -fx-background-color: -tm-border; }
+.nav-button:selected { -fx-background-color: -tm-accent; -fx-text-fill: white; }
+
+/* Kaardid ja tekstid */
+.page-title { -fx-font-size: 22px; -fx-font-weight: bold; }
+.card {
+    -fx-background-color: -tm-panel;
+    -fx-background-radius: 12;
+    -fx-border-color: -tm-border;
+    -fx-border-radius: 12;
+    -fx-padding: 16;
+}
+.card-title { -fx-text-fill: -tm-muted; -fx-font-size: 12px; }
+.card-value { -fx-font-size: 28px; -fx-font-weight: bold; }
+
+/* Progressiribad */
+.progress-bar > .track { -fx-background-color: -tm-border; -fx-background-radius: 4; }
+.progress-bar > .bar { -fx-background-color: -tm-accent; -fx-background-radius: 4; -fx-padding: 4; }
+
+/* Graafikud */
+.chart { -fx-background-color: transparent; }
+.chart-plot-background { -fx-background-color: transparent; }
+.chart-series-line { -fx-stroke: -tm-accent; -fx-stroke-width: 2px; }
+.chart-vertical-grid-lines { -fx-stroke: transparent; }
+.chart-horizontal-grid-lines { -fx-stroke: -tm-border; }
+.axis { -fx-tick-label-fill: -tm-muted; }
+.axis-label { -fx-text-fill: -tm-muted; }
+
+/* Kerimine */
+.scroll-pane { -fx-background-color: transparent; }
+.scroll-pane > .viewport { -fx-background-color: transparent; }
+
+/* Tabel */
+.table-view { -fx-background-color: -tm-panel; -fx-border-color: -tm-border; }
+.table-view .column-header-background,
+.table-view .column-header,
+.table-view .filler { -fx-background-color: -tm-border; }
+.table-view .column-header .label { -fx-text-fill: -tm-text; }
+.table-row-cell { -fx-background-color: -tm-panel; }
+.table-cell { -fx-text-fill: -tm-text; }
+.table-row-cell:selected { -fx-background-color: -tm-accent; }
+.table-row-cell:selected .table-cell { -fx-text-fill: white; }
+
+/* Sisestus */
+.text-field, .combo-box, .combo-box .list-cell {
+    -fx-background-color: -tm-panel;
+    -fx-text-fill: -tm-text;
+    -fx-prompt-text-fill: -tm-muted;
+}
+.text-field, .combo-box { -fx-border-color: -tm-border; -fx-border-radius: 6; -fx-background-radius: 6; }
+.button {
+    -fx-background-color: -tm-accent;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+.button:disabled { -fx-opacity: 0.4; }
