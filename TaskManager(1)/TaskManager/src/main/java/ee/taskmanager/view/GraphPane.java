@@ -64,7 +64,7 @@ public class GraphPane extends Region {
         GraphicsContext g = canvas.getGraphicsContext2D();
         g.clearRect(0, 0, w, h);
 
-        g.setFill(Color.WHITE);
+        g.setFill(Color.rgb(30, 30, 30));
         g.fillRect(0, 0, w, h);
         g.setFill(color.deriveColor(0, 1, 1, 0.07));
         g.fillRect(0, 0, w, h);
