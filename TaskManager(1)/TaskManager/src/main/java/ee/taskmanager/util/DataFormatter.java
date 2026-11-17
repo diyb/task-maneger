@@ -34,4 +34,10 @@ public final class DataFormatter {
     public static String mbps(double bytesPerSec) {
         return String.format("%.1f Mbps", toMbps(bytesPerSec));
     }
+
+    /** Sekundid -> "päevi:tt:mm:ss" nagu Windows Task Manageris. */
+    public static String uptime(long sec) {
+        long d = sec / 86400, h = sec % 86400 / 3600, m = sec % 3600 / 60, s = sec % 60;
+        return String.format("%d:%02d:%02d:%02d", d, h, m, s);
+    }
 }
