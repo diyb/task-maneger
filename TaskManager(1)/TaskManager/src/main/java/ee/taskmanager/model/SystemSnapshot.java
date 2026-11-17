@@ -24,7 +24,12 @@ public record SystemSnapshot(
         long netReceived,
         long netSent,
         List<GpuInfo> gpus,
-        List<ProcessInfo> processes) {
+        List<ProcessInfo> processes,
+        int processCount,
+        int threadCount,
+        long uptimeSec,
+        double baseGhz,          // 0 = andmed puuduvad
+        int sockets) {
 
     public double ramPercent() {
         return ramTotal == 0 ? 0 : (double) ramUsed / ramTotal * 100;
