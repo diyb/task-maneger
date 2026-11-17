@@ -1,97 +1,100 @@
-/* Teemad: .dark ja .light seatakse peaakna juurele (MainApp.applyTheme) */
-.dark {
-    -tm-bg: #15171c;
-    -tm-panel: #1f222a;
-    -tm-text: #e8eaf0;
-    -tm-muted: #8b90a0;
-    -tm-accent: #4cc2ff;
-    -tm-border: #2c303b;
+/* Windows 10 Task Manageri stiilis kujundus (tume teema) */
+.root {
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-font-size: 12px;
+    -fx-base: #2d2d30;
+    -fx-background: #1e1e1e;
+    -fx-control-inner-background: #252526;
 }
 
-.light {
-    -tm-bg: #f2f4f8;
-    -tm-panel: #ffffff;
-    -tm-text: #1b1e26;
-    -tm-muted: #6a7080;
-    -tm-accent: #0078d4;
-    -tm-border: #dde1e8;
-}
+.label { -fx-text-fill: #f1f1f1; }
+.caption { -fx-text-fill: #a0a0a0; -fx-font-size: 12px; }
 
-.root-pane { -fx-background-color: -tm-bg; }
-.label { -fx-text-fill: -tm-text; }
-.muted { -fx-text-fill: -tm-muted; }
-
-/* Külgmenüü */
-.sidebar {
-    -fx-background-color: -tm-panel;
-    -fx-padding: 16 10 16 10;
-    -fx-border-color: -tm-border;
-    -fx-border-width: 0 1 0 0;
-}
-.brand { -fx-font-size: 15px; -fx-font-weight: bold; -fx-padding: 0 0 16 8; }
-.nav-button {
+/* Vahekaardid */
+.tab-pane { -fx-tab-min-height: 26px; -fx-tab-max-height: 26px; }
+.tab-pane > .tab-header-area { -fx-padding: 0 0 0 6; }
+.tab-pane > .tab-header-area > .tab-header-background { -fx-background-color: #252526; }
+.tab-pane > .tab-header-area > .headers-region > .tab {
     -fx-background-color: transparent;
-    -fx-text-fill: -tm-muted;
-    -fx-alignment: CENTER_LEFT;
-    -fx-padding: 10 14 10 14;
-    -fx-background-radius: 8;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 2 14 2 14;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:hover { -fx-background-color: #37373d; }
+.tab-pane > .tab-header-area > .headers-region > .tab:selected { -fx-background-color: #1e1e1e; }
+.tab-pane > .tab-header-area > .headers-region > .tab .tab-label { -fx-text-fill: #f1f1f1; -fx-font-size: 12px; }
+.tab-pane > .tab-content-area { -fx-background-color: #1e1e1e; }
+.tab-pane { -fx-focus-color: transparent; -fx-faint-focus-color: transparent; }
+
+/* Performance: vasak nimekiri */
+.perf-list {
+    -fx-background-color: #252526;
+    -fx-border-color: #3f3f46;
+    -fx-border-width: 1 1 0 0;
+    -fx-padding: 4 0 4 0;
+}
+.perf-tile {
+    -fx-padding: 8 12 8 12;
     -fx-cursor: hand;
-    -fx-font-size: 13px;
 }
-.nav-button:hover { -fx-background-color: -tm-border; }
-.nav-button:selected { -fx-background-color: -tm-accent; -fx-text-fill: white; }
+.perf-tile:hover { -fx-background-color: #2a2d2e; }
+.perf-tile:selected { -fx-background-color: #37373d; }
+.tile-title { -fx-font-size: 14px; }
+.tile-sub { -fx-text-fill: #a0a0a0; -fx-font-size: 12px; }
 
-/* Kaardid ja tekstid */
-.page-title { -fx-font-size: 22px; -fx-font-weight: bold; }
-.card {
-    -fx-background-color: -tm-panel;
-    -fx-background-radius: 12;
-    -fx-border-color: -tm-border;
-    -fx-border-radius: 12;
-    -fx-padding: 16;
+/* Performance: detailvaade */
+.detail-title { -fx-font-size: 24px; }
+.detail-model { -fx-font-size: 16px; -fx-text-fill: #c5c5c5; }
+.stat-value { -fx-font-size: 28px; -fx-text-fill: #f1f1f1; }
+.info-key { -fx-text-fill: #a0a0a0; }
+
+/* Protsesside tabel */
+.table-view {
+    -fx-background-color: #1e1e1e;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-table-cell-border-color: #3f3f46;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
-.card-title { -fx-text-fill: -tm-muted; -fx-font-size: 12px; }
-.card-value { -fx-font-size: 28px; -fx-font-weight: bold; }
-
-/* Progressiribad */
-.progress-bar > .track { -fx-background-color: -tm-border; -fx-background-radius: 4; }
-.progress-bar > .bar { -fx-background-color: -tm-accent; -fx-background-radius: 4; -fx-padding: 4; }
-
-/* Graafikud */
-.chart { -fx-background-color: transparent; }
-.chart-plot-background { -fx-background-color: transparent; }
-.chart-series-line { -fx-stroke: -tm-accent; -fx-stroke-width: 2px; }
-.chart-vertical-grid-lines { -fx-stroke: transparent; }
-.chart-horizontal-grid-lines { -fx-stroke: -tm-border; }
-.axis { -fx-tick-label-fill: -tm-muted; }
-.axis-label { -fx-text-fill: -tm-muted; }
-
-/* Kerimine */
-.scroll-pane { -fx-background-color: transparent; }
-.scroll-pane > .viewport { -fx-background-color: transparent; }
-
-/* Tabel */
-.table-view { -fx-background-color: -tm-panel; -fx-border-color: -tm-border; }
-.table-view .column-header-background,
-.table-view .column-header,
-.table-view .filler { -fx-background-color: -tm-border; }
-.table-view .column-header .label { -fx-text-fill: -tm-text; }
-.table-row-cell { -fx-background-color: -tm-panel; }
-.table-cell { -fx-text-fill: -tm-text; }
-.table-row-cell:selected { -fx-background-color: -tm-accent; }
-.table-row-cell:selected .table-cell { -fx-text-fill: white; }
-
-/* Sisestus */
-.text-field, .combo-box, .combo-box .list-cell {
-    -fx-background-color: -tm-panel;
-    -fx-text-fill: -tm-text;
-    -fx-prompt-text-fill: -tm-muted;
+.table-view .column-header-background { -fx-background-color: #252526; }
+.table-view .column-header {
+    -fx-background-color: #252526;
+    -fx-size: 50px;
+    -fx-border-color: transparent #3f3f46 #3f3f46 transparent;
 }
-.text-field, .combo-box { -fx-border-color: -tm-border; -fx-border-radius: 6; -fx-background-radius: 6; }
+.table-view .column-header .label { -fx-text-fill: #f1f1f1; -fx-alignment: center-left; }
+.table-view .filler { -fx-background-color: #252526; }
+.col-pct { -fx-font-size: 18px; -fx-text-fill: #f1f1f1; }
+.col-name { -fx-text-fill: #a0a0a0; }
+
+.table-row-cell { -fx-background-color: #1e1e1e; -fx-cell-size: 24px; -fx-border-color: transparent; }
+.table-row-cell:odd { -fx-background-color: #1e1e1e; }
+.table-row-cell:filled:hover { -fx-background-color: #2a2d2e; }
+.table-row-cell:filled:selected { -fx-background-color: #37373d; }
+.table-cell { -fx-text-fill: #f1f1f1; -fx-border-color: transparent; -fx-padding: 0 8 0 8; -fx-alignment: center-left; }
+.table-row-cell:filled:selected .table-cell { -fx-text-fill: #f1f1f1; }
+
+.bottom-bar { -fx-background-color: #252526; -fx-border-color: #3f3f46; -fx-border-width: 1 0 0 0; }
+
+/* Nupud ja otsing */
 .button {
-    -fx-background-color: -tm-accent;
-    -fx-text-fill: white;
-    -fx-background-radius: 6;
-    -fx-cursor: hand;
+    -fx-background-color: #3e3e42;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-color: #5a5a5e;
+    -fx-border-width: 1;
+    -fx-text-fill: #f1f1f1;
+    -fx-padding: 4 18 4 18;
 }
-.button:disabled { -fx-opacity: 0.4; }
+.button:hover { -fx-background-color: #4a4a4f; -fx-border-color: #0078d7; }
+.button:disabled { -fx-opacity: 0.5; }
+.text-field {
+    -fx-text-fill: #f1f1f1;
+    -fx-prompt-text-fill: #858585;
+    -fx-background-color: #252526;
+    -fx-background-radius: 0;
+    -fx-border-color: #5a5a5e;
+    -fx-border-width: 1;
+    -fx-background-insets: 0;
+}
