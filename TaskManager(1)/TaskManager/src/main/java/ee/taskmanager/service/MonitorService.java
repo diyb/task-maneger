@@ -62,10 +62,6 @@ public class MonitorService {
         schedule(seconds);
     }
 
-    public synchronized void setInterval(int seconds) {
-        if (exec != null) schedule(seconds);
-    }
-
     private void schedule(int seconds) {
         if (task != null) task.cancel(false);
         task = exec.scheduleWithFixedDelay(this::tick, 0, Math.max(1, seconds), TimeUnit.SECONDS);
@@ -106,7 +102,7 @@ public class MonitorService {
                 n++;
             }
         }
-        freq = n > 0 ? freq / n : cpu.getProcessorIdentifier().getVendorFreq();
+        freq = n > 0 ? freq / n : Math.max(0, cpu.getProcessorIdentifier().getVendorFreq());
         freq /= 1e9;
 
         if (tickCount++ % 5 == 0) {
@@ -184,7 +180,7 @@ public class MonitorService {
         List<ProcessInfo> out = new ArrayList<>(procs.size());
         for (OSProcess p : procs) {
             int pid = p.getProcessID();
-            if (pid == 0) continue; // Idle
+            if (pid == 0) continue; 
             cur.put(pid, p);
             OSProcess prev = prevProcs.get(pid);
             double load = prev == null ? 0 : 100d * p.getProcessCpuLoadBetweenTicks(prev) / logical;
@@ -197,6 +193,9 @@ public class MonitorService {
                 cpu.getProcessorIdentifier().getName(), Math.max(0, Math.min(100, cpuUsage)),
                 cpu.getPhysicalProcessorCount(), logical, freq, lastTemp, core,
                 ramTotal, ramUsed, diskModel, diskTotal, diskTotal - diskFree,
-                readBps, writeBps, netName, down, up, rx, tx, gpus, out);
+                readBps, writeBps, netName, down, up, rx, tx, gpus, out,
+                os.getProcessCount(), os.getThreadCount(), os.getSystemUptime(),
+                Math.max(0, cpu.getProcessorIdentifier().getVendorFreq()) / 1e9,
+                cpu.getPhysicalPackageCount());
     }
 }
